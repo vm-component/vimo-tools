@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "vimo-tools": "./bin/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vm-component/vimo-tools.git"
@@ -15,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/vm-component/vimo-tools/issues"
   },
-  "homepage": "https://github.com/vm-component/vimo-tools#readme"
+  "homepage": "https://github.com/vm-component/vimo-tools#readme",
+  "dependencies": {
+    "commander": "^2.15.1"
+  }
 }
