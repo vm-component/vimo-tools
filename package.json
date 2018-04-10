@@ -19,7 +19,40 @@
     "url": "https://github.com/vm-component/vimo-tools/issues"
   },
   "homepage": "https://github.com/vm-component/vimo-tools#readme",
+  "devDependencies": {
+    "@vue/babel-preset-app": "^3.0.0-beta.6",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.1.4",
+    "eventsource-polyfill": "^0.9.6",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.2.1",
+    "lodash.kebabcase": "^4.1.1",
+    "lodash.startcase": "^4.4.0",
+    "node-sass": "^4.8.3",
+    "postcss-loader": "^2.0.6",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.57.1",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-prettier": "^0.4.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-uglify": "^3.0.0",
+    "rollup-plugin-vue": "^3.0.0",
+    "sass-loader": "^6.0.6",
+    "to-fast-properties": "^2.0.0",
+    "vue-loader": "^11.3.4",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^3.5.6",
+    "webpack-bundle-analyzer": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-hot-middleware": "^2.21.2",
+    "webpack-merge": "^2.6.1"
+  },
   "dependencies": {
-    "commander": "^2.15.1"
+    "babel-core": "^6.26.0",
+    "commander": "^2.15.1",
+    "copyfiles": "^2.0.0",
+    "gulp-babel": "^7.0.1",
+    "rollup-plugin-babel": "^3.0.3"
   }
 }
