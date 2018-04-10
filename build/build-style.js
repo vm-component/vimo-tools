@@ -16,14 +16,11 @@
  * - scss -> css + uglify + sourcemaps
  *
  * */
-
-// TODO: style for lib with postcss plugin!
-// TODO: style source map!
-
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var config = require('./config');
-const { srcPath, esPath, libPath } = config;
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const config = require('./config');
+const { srcPath, esPath, libPath, browsers } = config;
+const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('style:transfer', function () {
     return gulp.src(`${srcPath}/**/*.scss`)
@@ -32,10 +29,17 @@ gulp.task('style:transfer', function () {
 });
 
 gulp.task('style', ['style:transfer'], function () {
-    return gulp.src(`${srcPath}/components/**/*.scss`)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(`${esPath}/components/`))
-        .pipe(gulp.dest(`${libPath}/components/`));
+    return gulp.src(`${srcPath}/**/*.scss`)
+        .pipe(sass({
+            sourceComments: false,
+            outputStyle: 'compressed',
+        }))
+        .pipe(autoprefixer({
+            browsers,
+            cascade: false
+        }))
+        .pipe(gulp.dest(`${esPath}`))
+        .pipe(gulp.dest(`${libPath}`));
 });
 
 module.exports = function buildStyle() {
