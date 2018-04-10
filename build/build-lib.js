@@ -7,7 +7,7 @@
 const rimraf = require('rimraf');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const getComponentFileNames = require('../utils/get-components');
+const getComponentFileNames = require('../utils/get-path-names');
 const buildJS = require('./build-js');
 const getBabelConfig = require('./babel-config');
 const { srcPath, libPath } = require('../config/index');

@@ -17,12 +17,12 @@ const getBabelConfig = require('./babel-config');
  * @param {String} componentName - The name of component
  * @param {Boolean} [isEsBoundle=true] - is buld Es Module?
  * */
-module.exports = async function buildJS(componentName, isEsBoundle = true) {
+module.exports = async function buildJS(componentName, isEsBoundle = true, dir = 'components') {
 
     // The entry of components: xx/index.js
-    const inputPath = `${srcPath}/components/${componentName}/index.js`;
-    const outputESPath = `${esPath}/components/${componentName}/index.js`;
-    const outputLibPath = `${libPath}/components/${componentName}/index.js`;
+    const inputPath = `${srcPath}/${dir}/${componentName}/index.js`;
+    const outputESPath = `${esPath}/${dir}/${componentName}/index.js`;
+    const outputLibPath = `${libPath}/${dir}/${componentName}/index.js`;
 
     // action-sheet => ActionSheet
     const outputName = startcase(componentName).split(' ').join('');
@@ -32,7 +32,7 @@ module.exports = async function buildJS(componentName, isEsBoundle = true) {
         external(id) {
             // console.log(id + '----', componentName);
             // 当前组件文件夹下的资源将不认为是external
-            return !(id.indexOf(`components/${componentName}`) > -1 || /(^\.\/)/.test(id));
+            return !(id.indexOf(`${dir}/${componentName}`) > -1 || /(^\.\/)/.test(id));
         },
         plugins: [
             vue({

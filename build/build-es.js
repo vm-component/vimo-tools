@@ -5,16 +5,16 @@
  * 3. src/mixins/* -> copy -> es/mixins/*
  * */
 const rimraf = require('rimraf');
-const getComponentFileNames = require('../utils/get-components');
+const getPathName = require('../utils/get-path-names');
 const buildJS = require('./build-js');
 const { srcPath, esPath } = require('../config/index');
 
 module.exports = function buildES() {
-    getComponentFileNames().then((componentsFileNames) => {
-        rimraf(esPath, () => {
+    rimraf(esPath, () => {
+        getPathName('components').then((componentsFileNames) => {
             // componentsFileNames = ['content', 'datetime'];
             componentsFileNames.forEach(name => {
-                buildJS(name, true);
+                buildJS(name, true, 'components');
             });
 
             // transfer util && mixins files to es folder
@@ -23,8 +23,13 @@ module.exports = function buildES() {
             copyfiles([`${srcPath}/util/*.js`, `${esPath}/util`], { up: up }, () => {
                 // console.log('util move done');
             });
-            copyfiles([`${srcPath}/mixins/*.js`, `${esPath}/mixins`], { up: up }, () => {
-                // console.log('mixins move done');
+            // copyfiles([`${srcPath}/mixins/*.js`, `${esPath}/mixins`], { up: up }, () => {
+            //     // console.log('mixins move done');
+            // });
+        });
+        getPathName('mixins').then((mixinsFileNames) => {
+            mixinsFileNames.forEach(name => {
+                buildJS(name, true, 'mixins');
             });
         });
     });

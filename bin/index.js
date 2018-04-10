@@ -40,34 +40,25 @@ program
         }
     });
 
-program
-    .command('lint [ext]')
-    .description('lint the module')
-    .action(function (ext) {
-        console.log('build module of "%s"', ext);
-        if (ext === 'css') {
-
-        }
-        if (ext === 'scss') {
-
-        }
-        if (ext === 'js') {
-
-        }
-        if (ext === 'md') {
-
-        }
-        if (ext === 'vue') {
-
-        }
-    });
-
-program
-    .command('generate theme')
-    .description('generate the theme')
-    .action(function () {
-        console.log('generate theme of ');
-    });
+// program
+//     .command('lint [ext]')
+//     .description('lint the module')
+//     .action(function (ext) {
+//         console.log('lint module of "%s"', ext);
+//         const eslint = require('eslint')
+//         if (ext === 'style') {
+//
+//         }
+//         if (ext === 'vue') {
+//
+//         }
+//         if (ext === 'js') {
+//
+//         }
+//         if (ext === 'md') {
+//
+//         }
+//     });
 
 program.parse(process.argv);
 

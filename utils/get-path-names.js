@@ -1,12 +1,12 @@
 const fs = require('fs');
 const config = require('../config/index');
 const { srcPath } = config;
-let cache = [];
+let cache = {};
 
-module.exports = function getComponents() {
+module.exports = function getPathNames(pathName = 'components') {
     return new Promise((resolve, reject) => {
-        if (cache.length === 0) {
-            fs.readdir(`${srcPath}/components`, function (err, files) {
+        if (!cache[pathName] || cache[pathName].length === 0) {
+            fs.readdir(`${srcPath}/${pathName}`, function (err, files) {
                 if (err) {
                     reject(err);
                     throw err;
@@ -19,11 +19,11 @@ module.exports = function getComponents() {
 
                 // file names
                 let componentsFileNames = files.filter((fileName) => filterCondition(fileName));
-                cache = componentsFileNames;
-                resolve && resolve(cache);
+                cache[pathName] = componentsFileNames;
+                resolve && resolve(componentsFileNames);
             });
         } else {
-            resolve && resolve(cache);
+            resolve && resolve(cache[pathName]);
         }
     });
 };
