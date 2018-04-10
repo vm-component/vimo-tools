@@ -17,18 +17,12 @@
  *  - uglify
  * */
 
-const getComponentFileNames = require('./get-components');
 const buildStyle = require('./build-style');
-const generateEntry = require('./generate-entry');
 const buildES = require('./build-es');
 const buildLib = require('./build-lib');
+const buildEntry = require('./build-entry');
 
 exports.buildLib = buildLib;
 exports.buildES = buildES;
 exports.buildStyle = buildStyle;
-exports.buildEntry = function () {
-    getComponentFileNames().then((componentsFileNames) => {
-        generateEntry(componentsFileNames, true);
-        generateEntry(componentsFileNames, false);
-    });
-};
+exports.buildEntry = buildEntry;

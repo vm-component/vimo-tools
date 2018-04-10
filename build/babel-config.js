@@ -1,4 +1,4 @@
-const { browsers } = require('./config');
+const { browsers } = require('../config/index');
 
 module.exports = function getBabelConfig(modules = false) {
     return {

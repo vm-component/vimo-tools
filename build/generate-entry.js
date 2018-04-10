@@ -3,7 +3,7 @@
  * */
 const fs = require('fs');
 const startcase = require('lodash.startcase');
-const { esPath, libPath } = require('./config');
+const { esPath, libPath } = require('../config/index');
 const getBabelConfig = require('./babel-config');
 const babel = require('babel-core');
 

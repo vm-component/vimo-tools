@@ -1,5 +1,5 @@
 const fs = require('fs');
-const config = require('./config');
+const config = require('../config/index');
 const { srcPath } = config;
 let cache = [];
 

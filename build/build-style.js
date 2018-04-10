@@ -1,24 +1,19 @@
 /**
- * # 处理组件中的样式
+ * Transfer styles:
+ * src/xx/xx.scss -> transfer -> lib/xx/xx.css
+ * src/xx/xx.scss -> transfer -> es/xx/xx.css
  *
- * 组件的结构如下:
+ * Components styles:
+ * src/components/xx.scss -> sass -> autoprefixer -> es/themes/xx.css
+ * src/components/xx.scss -> sass -> autoprefixer -> lib/themes/xx.css
  *
- * 组件结构及功能: button.js = button.vue + utils + other.vue
- * 组件基础样式(独立入口): button.scss
- * 组件皮肤(每个都是独立入口): button.ios.scss / button.md.scss / button.xx.scss
- *
- * 这里进行组件样式处理, 包括以下处理步骤:
- *
- * es:
- * - 样式原样转移(*.scss)
- *
- * lib:
- * - scss -> css + uglify + sourcemaps
- *
+ * Themes styles:
+ * src/themes/xx.scss -> sass -> autoprefixer -> es/themes/xx.css
+ * src/themes/xx.scss -> sass -> autoprefixer -> lib/themes/xx.css
  * */
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const config = require('./config');
+const config = require('../config/index');
 const { srcPath, esPath, libPath, browsers } = config;
 const autoprefixer = require('gulp-autoprefixer');
 

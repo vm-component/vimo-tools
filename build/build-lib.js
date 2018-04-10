@@ -7,10 +7,10 @@
 const rimraf = require('rimraf');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const getComponentFileNames = require('./get-components');
+const getComponentFileNames = require('../utils/get-components');
 const buildJS = require('./build-js');
 const getBabelConfig = require('./babel-config');
-const { srcPath, libPath } = require('./config');
+const { srcPath, libPath } = require('../config/index');
 
 gulp.task('lib:util', function () {
     return gulp.src(`${srcPath}/util/*.js`)

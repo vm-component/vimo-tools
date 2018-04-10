@@ -1,10 +1,12 @@
-var path = require('path');
+const path = require('path');
+
+// project pwd, not vimo-tools
 const dirname = process.env.PWD;
 const res = {
     srcPath: path.resolve(dirname, 'src'),
     esPath: path.resolve(dirname, 'es'),
     libPath: path.resolve(dirname, 'lib'),
-    browsers:[
+    browsers: [
         'last 2 versions',
         'Firefox ESR',
         '> 1%',

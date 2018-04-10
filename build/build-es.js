@@ -5,9 +5,9 @@
  * 3. src/mixins/* -> copy -> es/mixins/*
  * */
 const rimraf = require('rimraf');
-const getComponentFileNames = require('./get-components');
+const getComponentFileNames = require('../utils/get-components');
 const buildJS = require('./build-js');
-const { srcPath, esPath } = require('./config');
+const { srcPath, esPath } = require('../config/index');
 
 module.exports = function buildES() {
     getComponentFileNames().then((componentsFileNames) => {

@@ -9,7 +9,7 @@ const babel = require('rollup-plugin-babel');
 const sourceMaps = require('rollup-plugin-sourcemaps');
 const uglify = require('rollup-plugin-uglify');
 const prettier = require('rollup-plugin-prettier');
-const { srcPath, esPath, libPath } = require('./config');
+const { srcPath, esPath, libPath } = require('../config/index');
 const getBabelConfig = require('./babel-config');
 
 /**
