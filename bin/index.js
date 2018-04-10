@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Module dependencies.
+ * The Tools Entries!
  */
 const program = require('commander');
 const { version, name } = require('../package.json');
