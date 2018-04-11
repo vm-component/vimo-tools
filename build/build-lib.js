@@ -7,7 +7,7 @@
 const rimraf = require('rimraf');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const getComponentFileNames = require('../utils/get-path-names');
+const getPathNames = require('../utils/get-path-names');
 const buildJS = require('./build-js');
 const getBabelConfig = require('./babel-config');
 const { srcPath, libPath } = require('../config/index');
@@ -24,8 +24,8 @@ gulp.task('lib:mixins', function () {
 });
 
 module.exports = function buildLib() {
-    getComponentFileNames().then((componentsFileNames) => {
-        rimraf(libPath, () => {
+    rimraf(libPath, () => {
+        getPathNames('components').then((componentsFileNames) => {
             // components
             componentsFileNames.forEach(name => {
                 buildJS(name, false);
@@ -34,6 +34,11 @@ module.exports = function buildLib() {
             // other js files
             gulp.start('lib:util');
             gulp.start('lib:mixins');
+        });
+        getPathNames('mixins').then((mixinsFileNames) => {
+            mixinsFileNames.forEach(name => {
+                buildJS(name, false, 'mixins');
+            });
         });
     });
 };

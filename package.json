@@ -19,22 +19,36 @@
     "url": "https://github.com/vm-component/vimo-tools/issues"
   },
   "homepage": "https://github.com/vm-component/vimo-tools#readme",
-  "devDependencies": {
+  "dependencies": {
     "@vue/babel-preset-app": "^3.0.0-beta.6",
+    "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
+    "commander": "^2.15.1",
+    "connect-history-api-fallback": "^1.5.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "copyfiles": "^2.0.0",
     "cross-env": "^5.1.4",
     "eslint": "^4.19.1",
     "eslint-plugin-vue": "^4.4.0",
     "eventsource-polyfill": "^0.9.6",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "glob": "^7.1.2",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
     "gulp-sass": "^3.2.1",
+    "http-proxy-middleware": "^0.18.0",
     "lodash.kebabcase": "^4.1.1",
     "lodash.startcase": "^4.4.0",
     "node-sass": "^4.8.3",
+    "opn": "^5.3.0",
+    "optimize-css-assets-webpack-plugin": "^4.0.0",
+    "ora": "^2.0.0",
     "postcss-loader": "^2.0.6",
     "rimraf": "^2.6.2",
     "rollup": "^0.57.1",
+    "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-prettier": "^0.4.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
@@ -50,12 +64,7 @@
     "webpack-hot-middleware": "^2.21.2",
     "webpack-merge": "^2.6.1"
   },
-  "dependencies": {
-    "babel-core": "^6.26.0",
-    "commander": "^2.15.1",
-    "copyfiles": "^2.0.0",
-    "glob": "^7.1.2",
-    "gulp-babel": "^7.0.1",
-    "rollup-plugin-babel": "^3.0.3"
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0"
   }
 }

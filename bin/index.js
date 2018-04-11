@@ -6,6 +6,7 @@
 const program = require('commander');
 const { version, name } = require('../package.json');
 const { buildLib, buildES, buildStyle, buildEntry } = require('../build/index');
+const { demoDev, demoBuild } = require('../demo/index');
 
 program
     .version(version, '-v, --version')
@@ -21,7 +22,7 @@ program
 
 program
     .command('build [module]')
-    .description('build the module')
+    .description('构建发布模块')
     .action(function (module) {
         if (module === 'es') {
             buildES();
@@ -37,6 +38,23 @@ program
         }
         if (module === 'dist') {
             // TODO: do it later
+        }
+
+        if (module === undefined) {
+            // TODO: 完成完整的build构建编排, es/lib/dist/style/entry
+            console.log('module:', module);
+        }
+    });
+
+program
+    .command('demo [type]')
+    .description('构建DEMO展示模块')
+    .action(function (type) {
+        if (type === 'dev') {
+            demoDev();
+        }
+        if (type === 'build') {
+            demoBuild();
         }
     });
 
