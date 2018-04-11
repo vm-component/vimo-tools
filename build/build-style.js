@@ -20,7 +20,8 @@ const config = require('../config/index');
 const getPathNames = require('../utils/get-path-names.js');
 const { srcPath, esPath, libPath, browsers } = config;
 const autoprefixer = require('gulp-autoprefixer');
-var glob = require('glob');
+const glob = require('glob');
+
 gulp.task('style:transfer', function () {
     return gulp.src(`${srcPath}/**/*.scss`)
         .pipe(gulp.dest(`${libPath}`))

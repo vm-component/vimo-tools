@@ -22,6 +22,7 @@
   "dependencies": {
     "@vue/babel-preset-app": "^3.0.0-beta.6",
     "babel-core": "^6.26.0",
+    "babel-plugin-vimo": "^1.0.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "commander": "^2.15.1",
@@ -55,6 +56,7 @@
     "rollup-plugin-uglify": "^3.0.0",
     "rollup-plugin-vue": "^3.0.0",
     "sass-loader": "^6.0.6",
+    "standard": "^11.0.1",
     "to-fast-properties": "^2.0.0",
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.5.16",

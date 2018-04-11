@@ -5,21 +5,17 @@ function resolve(dir) {
     return path.join(projectRoot, dir);
 }
 
-console.log("resolve('src')")
-console.log(resolve('src'))
-
 // 常用部分提取
 const res = {
     'vue$': 'vue/dist/vue.esm.js',
     '@': resolve('demo/src'),
+    '@DemoComponent': resolve('demo/src/components'),
     '@PageComponent': resolve('src/components'),
-    'vimo': resolve('es'),
-    'vimo-theme-ios': resolve('es/themes/ios'),
-    'vimo-theme-md': resolve('es/themes/md'),
-    'vimo-theme-wp': resolve('es/themes/wp'),
+    'vimo': resolve('src'),
+    'vimo-theme-ios': resolve('src/themes/ios'),
+    'vimo-theme-md': resolve('src/themes/md'),
+    'vimo-theme-wp': resolve('src/themes/wp'),
 };
-
-// console.log(res);
 
 // { 'vue$': 'vue/dist/vue.esm.js',
 //     '@': '/Users/Hsiang/GitHub/vimo/demo/src',
