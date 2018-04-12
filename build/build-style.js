@@ -43,7 +43,6 @@ gulp.task('style', ['style:transfer'], function () {
         .pipe(gulp.dest(`${libPath}`));
 });
 
-
 /**
  * 获取现有主题的原始数据
  * */

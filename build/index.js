@@ -23,7 +23,10 @@ exports.buildStyle = require('./build-style');
 exports.buildEntry = require('./build-entry');
 exports.buildDist = require('./build-dist');
 exports.build = async function () {
+    // es/lib
     await Promise.all([exports.buildES(), exports.buildLib()]);
     exports.buildStyle();
     exports.buildEntry();
+    // dist
+    exports.buildDist();
 };
