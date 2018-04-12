@@ -24,26 +24,25 @@ program
     .command('build [module]')
     .description('构建发布模块')
     .action(function (module) {
-        if (module === 'es') {
-            buildES();
-        }
-        if (module === 'lib') {
-            buildLib();
-        }
-        if (module === 'style') {
-            buildStyle();
-        }
-        if (module === 'entry') {
-            buildEntry();
-        }
-        if (module === 'dist') {
-            // TODO: do it later
-            buildDist();
-        }
-
-        if (module === undefined) {
-            // TODO: 完成完整的build构建编排, es/lib/dist/style/entry
-            build()
+        switch (module) {
+            case 'es':
+                buildES();
+                break;
+            case 'lib':
+                buildLib();
+                break;
+            case 'style':
+                buildStyle();
+                break;
+            case 'entry':
+                buildEntry();
+                break;
+            case 'dist':
+                buildDist();
+                break;
+            default:
+                build();
+                break;
         }
     });
 
@@ -56,6 +55,9 @@ program
         }
         if (type === 'build') {
             demoBuild();
+        }
+        if (type === 'publish') {
+            // TODO: 不确定是否有这个
         }
     });
 

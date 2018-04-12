@@ -67,13 +67,14 @@ module.exports = async function buildJS(componentName, isEsBoundle = true, dir =
     } else {
         // for ES
         inputOptions.plugins.push(
+          // TODO: 代码lint最后在检查一把
             // standard({
             //     fix: true,
             // }),
-            prettier({
-                tabWidth: 2,
-                singleQuote: false,
-            }),
+            // prettier({
+            //     tabWidth: 2,
+            //     singleQuote: false,
+            // }),
         );
 
         outputOptions = {
