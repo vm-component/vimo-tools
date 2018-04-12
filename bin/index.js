@@ -5,7 +5,7 @@
  */
 const program = require('commander');
 const { version, name } = require('../package.json');
-const { buildLib, buildES, buildStyle, buildEntry } = require('../build/index');
+const { build, buildLib, buildES, buildStyle, buildEntry, buildDist } = require('../build/index');
 const { demoDev, demoBuild } = require('../demo/index');
 
 program
@@ -38,11 +38,12 @@ program
         }
         if (module === 'dist') {
             // TODO: do it later
+            buildDist();
         }
 
         if (module === undefined) {
             // TODO: 完成完整的build构建编排, es/lib/dist/style/entry
-            console.log('module:', module);
+            build()
         }
     });
 

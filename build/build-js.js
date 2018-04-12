@@ -9,6 +9,7 @@ const babel = require('rollup-plugin-babel');
 const sourceMaps = require('rollup-plugin-sourcemaps');
 const uglify = require('rollup-plugin-uglify');
 const prettier = require('rollup-plugin-prettier');
+const standard = require('rollup-plugin-standard');
 const { srcPath, esPath, libPath } = require('../config/index');
 const getBabelConfig = require('./babel-config');
 
@@ -18,6 +19,7 @@ const getBabelConfig = require('./babel-config');
  * @param {Boolean} [isEsBoundle=true] - is buld Es Module?
  * */
 module.exports = async function buildJS(componentName, isEsBoundle = true, dir = 'components') {
+
 
     // The entry of components: xx/index.js
     const inputPath = `${srcPath}/${dir}/${componentName}/index.js`;
@@ -67,6 +69,9 @@ module.exports = async function buildJS(componentName, isEsBoundle = true, dir =
     } else {
         // for ES
         inputOptions.plugins.push(
+            // standard({
+            //     fix: true,
+            // }),
             prettier({
                 tabWidth: 2,
                 singleQuote: false,

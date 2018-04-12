@@ -14,6 +14,7 @@
  * */
 const _ = require('lodash');
 const fs = require('fs');
+const chalk = require('chalk');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const config = require('../config/index');
@@ -79,9 +80,11 @@ function createEmptyScssFile(type = 'ios', files = []) {
             if (err) {
                 throw err;
             }
-            console.log(`---------------------------------`);
-            console.log(`Auto generate file(please check!):`);
-            console.log(`Path: ${path}`);
+            console.log(chalk.red(`
+            Because the component of '${fileName}' does not create its own theme style, 
+            the build tool will create a new theme file. Please check this path.
+            ${path}\n`
+            ));
         });
     });
 }
@@ -96,12 +99,16 @@ module.exports = async function buildStyle() {
             const diff = _.difference(src, types);
             if (diff && diff.length > 0) {
                 // Notice:
-                // 可能新增了组件但是没创建对应的主题,
-                // 为了赵峥babel-plugin-vimo不报错
-                // 这里会创建默认的空文件在对应的主题下
                 createEmptyScssFile(type, diff);
             }
         });
     });
-    gulp.start('style');
+
+    return new Promise(resolve => {
+        gulp.doneCallback = () => {
+            console.log(chalk.cyan(`[Build Style&Themes]: Done`));
+            resolve();
+        };
+        gulp.start('style');
+    });
 };

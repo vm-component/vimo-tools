@@ -59,7 +59,6 @@ function generateRouteFile() {
                     throw err;
                 }
                 resolve && resolve();
-                console.log('done1');
             });
         });
     });

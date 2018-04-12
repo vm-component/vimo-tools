@@ -21,3 +21,9 @@ exports.buildLib = require('./build-lib');
 exports.buildES = require('./build-es');
 exports.buildStyle = require('./build-style');
 exports.buildEntry = require('./build-entry');
+exports.buildDist = require('./build-dist');
+exports.build = async function () {
+    await Promise.all([exports.buildES(), exports.buildLib()]);
+    exports.buildStyle();
+    exports.buildEntry();
+};
