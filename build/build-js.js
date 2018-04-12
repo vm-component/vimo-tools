@@ -19,8 +19,6 @@ const getBabelConfig = require('./babel-config');
  * @param {Boolean} [isEsBoundle=true] - is buld Es Module?
  * */
 module.exports = async function buildJS(componentName, isEsBoundle = true, dir = 'components') {
-
-
     // The entry of components: xx/index.js
     const inputPath = `${srcPath}/${dir}/${componentName}/index.js`;
     const outputESPath = `${esPath}/${dir}/${componentName}/index.js`;
@@ -89,8 +87,7 @@ module.exports = async function buildJS(componentName, isEsBoundle = true, dir =
         const bundle = await rollup.rollup(inputOptions);
         // or write the bundle to disk
         await bundle.write(outputOptions);
-    }
-    catch (e) {
+    } catch (e) {
         console.error(`Error occurs when rollup component of ${componentName}, more details here:`);
         console.error(e);
     }

@@ -13,6 +13,9 @@ module.exports = function getBabelConfig(modules = false) {
                 }
             ],
             'stage-2'
+        ],
+        plugins: [
+            require('babel-plugin-external-helpers')
         ]
     };
 };

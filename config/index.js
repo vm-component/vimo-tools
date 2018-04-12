@@ -8,6 +8,7 @@ const res = {
     srcPath: path.resolve(projectRoot, 'src'),
     esPath: path.resolve(projectRoot, 'es'),
     libPath: path.resolve(projectRoot, 'lib'),
+    distPath: path.resolve(projectRoot, 'dist'),
     browsers: [
         'last 2 versions',
         'Firefox ESR',

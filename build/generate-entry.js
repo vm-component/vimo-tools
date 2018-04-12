@@ -3,17 +3,32 @@
  * */
 const fs = require('fs');
 const startcase = require('lodash.startcase');
-const { esPath, libPath } = require('../config/index');
+const { srcPath, esPath, libPath } = require('../config/index');
 const getBabelConfig = require('./babel-config');
 const babel = require('babel-core');
 
 /**
  * @param {Array} fileNames - 文件名称列表
- * @param {Boolean} [isEsBoundle=true] - ES
+ * @param {String} [moduleName=src] - ES
  * @return {Promise}
  * */
-module.exports = function buildEntry(fileNames, isEsBoundle = true) {
-    const path = isEsBoundle ? esPath : libPath;
+module.exports = function buildEntry(fileNames, moduleName = 'src') {
+    let path = srcPath;
+    switch (moduleName) {
+        case 'src':
+            path = srcPath;
+            break;
+        case 'es':
+            path = esPath;
+            break;
+        case 'lib':
+            path = libPath;
+            break;
+        default:
+            path = srcPath;
+            break;
+    }
+
     return new Promise((resolve, reject) => {
         if (!Array.isArray(fileNames)) {
             let err = new Error(`generateEntry: the params of fileNames must pass in a array, but got a ${typeof fileNames}!`);
@@ -38,7 +53,7 @@ if (ENV && ENV !== 'production' && ENV !== 'test' && typeof console !== 'undefin
 }
 `;
 
-        if (!isEsBoundle) {
+        if (moduleName === 'lib') {
             // need babel
             const res = babel.transform(importString, getBabelConfig('commonjs'));
             importString = res.code;
