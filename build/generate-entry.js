@@ -44,7 +44,7 @@ module.exports = function buildEntry(fileNames, moduleName = 'src') {
             importString += _importString;
         });
 
-        importString += `export { default as Install } from './components/install.js'\n`;
+        // importString += `export { default as Install } from './components/install.js'\n`;
 
         importString += `\nvar ENV = process.env.NODE_ENV
 if (ENV && ENV !== 'production' && ENV !== 'test' && typeof console !== 'undefined' && console.warn && typeof window !== 'undefined') {
